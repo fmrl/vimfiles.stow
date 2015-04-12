@@ -1,0 +1,75 @@
+call plug#begin('~/.vim/plugged')
+Plug 'bling/vim-airline'
+Plug 'chriskempson/base16-vim'
+Plug 'kien/ctrlp.vim'
+Plug 'moll/vim-bbye'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTree' }
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-commentary'
+Plug 'takac/vim-fontmanager'
+Plug 'kien/rainbow_parentheses.vim'
+call plug#end()
+
+set nocompatible
+set backspace=indent,eol,start
+
+set background=dark
+colorscheme base16-twilight
+
+set ruler
+set number
+set wrap
+
+set hidden
+
+" tabs
+set autoindent
+set expandtab
+set shiftwidth=3
+set smartindent
+set smarttab
+set softtabstop=3
+set tabstop=8
+
+syntax enable
+
+let mapleader=","
+
+" show trailing whitespace.
+set list
+" only show interesting whitespace.
+if &listchars ==# 'eol:$'
+   set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+endif
+
+" vim-airline
+" -----------
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+" only show the basename, unless there's ambiguities.
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+"
+" vim-bbye
+" --------
+noremap <Leader>q :Bdelete<CR>
+"
+" vim-fontmanager
+" ---------------
+let g:fontman_font = "Input Mono Condensed"
+let g:fontman_size = 12
+let g:fontman_style = "medium"
+" 
+" rainbow_parentheses
+" -------------------
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesLoadChevrons
+"
+" vim-ctrlp
+" ---------
+let g:ctrlp_user_command = [
+    \ '.git', 'cd %s && git ls-files . -co --exclude-standard',
+    \ 'find %s -type f'
+    \ ]
