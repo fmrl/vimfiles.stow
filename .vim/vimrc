@@ -1,4 +1,6 @@
 call plug#begin('~/.vim/plugged')
+"Plug 'kien/rainbow_parentheses.vim'
+"Plug 'Raimondi/VimRegEx.vim'
 Plug 'bling/vim-airline'
 Plug 'chriskempson/base16-vim'
 Plug 'kien/ctrlp.vim'
@@ -6,15 +8,21 @@ Plug 'moll/vim-bbye'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTree' }
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
-Plug 'takac/vim-fontmanager'
-Plug 'kien/rainbow_parentheses.vim'
+Plug '~/.vim/unplugged/VimFStar', { 'for': 'fstar', 'freeze': 1 }
 call plug#end()
 
 set nocompatible
 set backspace=indent,eol,start
 
 set background=dark
+"let g:base16_shell_path='~/.config/base16-shell'
 colorscheme base16-twilight
+if has('gui_running')
+   set guioptions-=T
+   set guifont=Input\ Mono\ Condensed\\\,\ Medium\ Condensed\ 12
+   " eliminate space at the bottom of the window when using with xmonad.
+   set guiheadroom=0
+endif
 
 set ruler
 set number
@@ -53,19 +61,13 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " --------
 noremap <Leader>q :Bdelete<CR>
 "
-" vim-fontmanager
-" ---------------
-let g:fontman_font = "Input Mono Condensed"
-let g:fontman_size = 12
-let g:fontman_style = "medium"
-" 
 " rainbow_parentheses
 " -------------------
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-au Syntax * RainbowParenthesesLoadChevrons
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
+"au Syntax * RainbowParenthesesLoadChevrons
 "
 " vim-ctrlp
 " ---------
@@ -73,3 +75,14 @@ let g:ctrlp_user_command = [
     \ '.git', 'cd %s && git ls-files . -co --exclude-standard',
     \ 'find %s -type f'
     \ ]
+"
+" syntastic
+" ---------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"let g:syntastic_debug = 1
