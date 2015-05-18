@@ -1,8 +1,9 @@
 call plug#begin('~/.vim/plugged')
-"Plug 'kien/rainbow_parentheses.vim'
 "Plug 'Raimondi/VimRegEx.vim'
+"Plug 'kien/rainbow_parentheses.vim'
 Plug 'bling/vim-airline'
 Plug 'chriskempson/base16-vim'
+Plug 'flazz/vim-colorschemes'
 Plug 'kien/ctrlp.vim'
 Plug 'moll/vim-bbye'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTree' }
@@ -16,7 +17,8 @@ set backspace=indent,eol,start
 
 set background=dark
 "let g:base16_shell_path='~/.config/base16-shell'
-colorscheme base16-twilight
+"colorscheme base16-twilight
+colorscheme manuscript
 if has('gui_running')
    set guioptions-=T
    set guifont=Input\ Mono\ Condensed\\\,\ Medium\ Condensed\ 12
