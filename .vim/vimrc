@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 "Plug 'Raimondi/VimRegEx.vim'
 "Plug 'kien/rainbow_parentheses.vim'
+Plug 'Decho'
 Plug 'bling/vim-airline'
 Plug 'chriskempson/base16-vim'
 Plug 'flazz/vim-colorschemes'
@@ -8,6 +9,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'moll/vim-bbye'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTree' }
 Plug 'scrooloose/syntastic'
+Plug 'securemodelines'
 Plug 'tpope/vim-commentary'
 Plug '~/.vim/unplugged/VimFStar', { 'for': 'fstar', 'freeze': 1 }
 call plug#end()
@@ -16,14 +18,15 @@ set nocompatible
 set backspace=indent,eol,start
 
 set background=dark
-"let g:base16_shell_path='~/.config/base16-shell'
-"colorscheme base16-twilight
-colorscheme manuscript
 if has('gui_running')
    set guioptions-=T
    set guifont=Input\ Mono\ Condensed\\\,\ Medium\ Condensed\ 12
    " eliminate space at the bottom of the window when using with xmonad.
    set guiheadroom=0
+   colorscheme manuscript
+else
+   let g:base16_shell_path='~/.config/base16-shell'
+   colorscheme base16-twilight
 endif
 
 set ruler
@@ -42,6 +45,7 @@ set softtabstop=3
 set tabstop=8
 
 syntax enable
+set hlsearch
 
 let mapleader=","
 
