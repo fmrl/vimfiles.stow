@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
 "Plug 'Raimondi/VimRegEx.vim'
 "Plug 'kien/rainbow_parentheses.vim'
-Plug 'Decho'
+"Plug 'Decho'
 Plug 'bling/vim-airline'
 Plug 'chriskempson/base16-vim'
 Plug 'flazz/vim-colorschemes'
@@ -9,9 +9,9 @@ Plug 'kien/ctrlp.vim'
 Plug 'moll/vim-bbye'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTree' }
 Plug 'scrooloose/syntastic'
-Plug 'securemodelines'
+Plug 'ciaranm/securemodelines'
 Plug 'tpope/vim-commentary'
-Plug '~/.vim/unplugged/VimFStar', { 'for': 'fstar', 'freeze': 1 }
+"Plug '~/.vim/unplugged/VimFStar', { 'for': 'fstar', 'freeze': 1 }
 call plug#end()
 
 set nocompatible
@@ -25,7 +25,7 @@ if has('gui_running')
    set guiheadroom=0
    colorscheme manuscript
 else
-   let g:base16_shell_path='~/.config/base16-shell'
+   let g:base16_shell_path='~/.vim/aux/base16-shell'
    colorscheme base16-twilight
 endif
 
