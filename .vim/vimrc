@@ -11,6 +11,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTree' }
 Plug 'scrooloose/syntastic'
 Plug 'ciaranm/securemodelines'
 Plug 'tpope/vim-commentary'
+Plug 'TakeshiTseng/vim-language-p4'
 "Plug '~/.vim/unplugged/VimFStar', { 'for': 'fstar', 'freeze': 1 }
 call plug#end()
 
@@ -25,8 +26,8 @@ if has('gui_running')
    set guiheadroom=0
    colorscheme manuscript
 else
-   let g:base16_shell_path='~/.vim/aux/base16-shell'
-   colorscheme base16-twilight
+   let g:base16_shell_path='~/.vim/aux/base16-shell/scripts'
+   colorscheme base16-tomorrow
 endif
 
 set ruler
@@ -36,12 +37,12 @@ set wrap
 set hidden
 
 " tabs
+set shiftwidth=4
+set softtabstop=4
 set autoindent
 set expandtab
-set shiftwidth=3
 set smartindent
 set smarttab
-set softtabstop=3
 set tabstop=8
 
 syntax enable
