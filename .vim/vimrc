@@ -1,33 +1,34 @@
 call plug#begin('~/.vim/plugged')
-"Plug 'Raimondi/VimRegEx.vim'
-"Plug 'kien/rainbow_parentheses.vim'
-"Plug 'Decho'
 Plug 'bling/vim-airline'
 Plug 'chriskempson/base16-vim'
-Plug 'flazz/vim-colorschemes'
-Plug 'kien/ctrlp.vim'
-Plug 'moll/vim-bbye'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTree' }
-Plug 'scrooloose/syntastic'
 Plug 'ciaranm/securemodelines'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'flazz/vim-colorschemes'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'huawenyu/neogdb.vim'
+Plug 'majutsushi/tagbar'
+Plug 'moll/vim-bbye'
+Plug 'rust-lang/rust.vim'
+Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
-Plug 'TakeshiTseng/vim-language-p4'
-"Plug '~/.vim/unplugged/VimFStar', { 'for': 'fstar', 'freeze': 1 }
+Plug 'yggdroot/indentline'
 call plug#end()
 
 set nocompatible
 set backspace=indent,eol,start
 
-set background=dark
 if has('gui_running')
+   set background=light
    set guioptions-=T
-   set guifont=Input\ Mono\ Condensed\\\,\ Medium\ Condensed\ 12
+   set guifont=Input\ Mono\ Condensed\\\,\ Medium\ Condensed\ 13
    " eliminate space at the bottom of the window when using with xmonad.
    set guiheadroom=0
    colorscheme manuscript
 else
+   set background=dark
    let g:base16_shell_path='~/.vim/aux/base16-shell/scripts'
-   colorscheme base16-tomorrow
+   colorscheme base16-tomorrow-night
 endif
 
 set ruler
@@ -58,33 +59,30 @@ if &listchars ==# 'eol:$'
 endif
 
 " vim-airline
-" -----------
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 " only show the basename, unless there's ambiguities.
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-"
-" vim-bbye
-" --------
+
+" bbye
 noremap <Leader>q :Bdelete<CR>
-"
+" alias bbye -> bclose
+command! -bang -complete=buffer -nargs=? Bclose Bdelete<bang> <args>
+
 " rainbow_parentheses
-" -------------------
 "au VimEnter * RainbowParenthesesToggle
 "au Syntax * RainbowParenthesesLoadRound
 "au Syntax * RainbowParenthesesLoadSquare
 "au Syntax * RainbowParenthesesLoadBraces
 "au Syntax * RainbowParenthesesLoadChevrons
-"
+
 " vim-ctrlp
-" ---------
 let g:ctrlp_user_command = [
     \ '.git', 'cd %s && git ls-files . -co --exclude-standard',
     \ 'find %s -type f'
     \ ]
-"
+
 " syntastic
-" ---------
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -93,8 +91,13 @@ let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "let g:syntastic_debug = 1
-"
+
 " NERDtree
-" --------
-let NERDTreeQuitOnOpen=1
+"let NERDTreeQuitOnOpen=1
+
+" ranger.vim
+let g:ranger_replace_netrw = 1
+
+" tagbar
+nmap <F8> :TagbarToggle<CR>
 
