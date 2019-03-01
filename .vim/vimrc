@@ -17,6 +17,28 @@ call plug#end()
 
 set nocompatible
 set backspace=indent,eol,start
+set ruler
+set number
+set wrap
+set autoread
+set hidden
+set hlsearch
+
+" default tab & indent settings
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set expandtab
+set smartindent
+set smarttab
+set tabstop=8
+
+" show trailing whitespace.
+set list
+" only show interesting whitespace.
+if &listchars ==# 'eol:$'
+   set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+endif
 
 if has('gui_running')
    set background=light
@@ -31,32 +53,9 @@ else
    colorscheme base16-tomorrow-night
 endif
 
-set ruler
-set number
-set wrap
-
-set hidden
-
-" tabs
-set shiftwidth=4
-set softtabstop=4
-set autoindent
-set expandtab
-set smartindent
-set smarttab
-set tabstop=8
-
 syntax enable
-set hlsearch
 
 let mapleader=","
-
-" show trailing whitespace.
-set list
-" only show interesting whitespace.
-if &listchars ==# 'eol:$'
-   set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-endif
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
