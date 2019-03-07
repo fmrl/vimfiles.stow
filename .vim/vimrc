@@ -3,6 +3,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'djoshea/vim-autoread'
 Plug 'easymotion/vim-easymotion'
 Plug 'flazz/vim-colorschemes'
 Plug 'francoiscabrol/ranger.vim'
@@ -20,7 +21,6 @@ set backspace=indent,eol,start
 set ruler
 set number
 set wrap
-set autoread
 set hidden
 set hlsearch
 
