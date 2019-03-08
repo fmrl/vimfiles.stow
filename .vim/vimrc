@@ -1,17 +1,17 @@
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
-Plug 'bling/vim-airline'
 Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'djoshea/vim-autoread'
 Plug 'easymotion/vim-easymotion'
 Plug 'flazz/vim-colorschemes'
 Plug 'francoiscabrol/ranger.vim'
-Plug 'huawenyu/neogdb.vim'
 Plug 'moll/vim-bbye'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'yggdroot/indentline'
 call plug#end()
 
@@ -66,6 +66,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 " only show the basename, unless there's ambiguities.
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_theme='bubblegum'
 
 " bbye
 noremap <Leader>q :Bdelete<CR>
