@@ -56,6 +56,11 @@ syntax enable
 
 let mapleader=","
 
+" `:terminal` should wrap text
+if has('nvim')
+    au TermOpen * setlocal wrap
+endif
+
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
